@@ -21,6 +21,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample Flipselector description"
 #define NAME "Sample Flipselector"
@@ -77,6 +78,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, flipselector);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, flipselector);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, flipselector);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, flipselector);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, flipselector);
 	register_request_listener(EVENT_SELECT, select_flipselector, flipselector);
 
 	register_request_listener(ACTION_NEXT, register_action_next, flipselector);

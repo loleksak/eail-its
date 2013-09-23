@@ -21,11 +21,11 @@
 * cc -o box box.c request.c `pkg-config --cflags --libs elementary`
 */
 
-#include "utils.h"
 #include <Elementary.h>
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample box description"
 #define NAME "Sample box"

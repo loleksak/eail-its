@@ -104,8 +104,6 @@ elm_main(int argc, char **argv) {
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, menu);
 
 	register_request_listener(EVENT_PARENT_CHANGED, parent_changed, menu);
-	register_request_listener(EVENT_SET_FOCUS, set_focus, menu);
-	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, menu);
 	register_request_listener(EVENT_ADD_CHILDREN, add_children, menu);
 	register_request_listener(EVENT_RM_CHILDREN, rm_children, item);
 	register_request_listener(EVENT_SET_ENABLED, set_enabled, menu);

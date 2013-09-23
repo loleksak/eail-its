@@ -193,6 +193,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, genlist);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, genlist);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, genlist);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, genlist);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, genlist);
 	register_request_listener(EVENT_HIDE, hide, genlist);
 	register_request_listener(EVENT_SHOW, show, genlist);
 	register_request_listener(EVENT_SET_ENABLED, set_enabled, genlist);

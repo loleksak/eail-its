@@ -21,11 +21,11 @@
 * cc -o segment_control segment_control.c request.c `pkg-config --cflags elementary` -Wall `pkg-config --libs elementary`
 */
 
-#include "utils.h"
 #include <Elementary.h>
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample segment_control description"
 #define NAME "Sample segment_control"

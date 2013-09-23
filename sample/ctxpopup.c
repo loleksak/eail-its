@@ -21,10 +21,10 @@
 * cc -o ctxpopup ctxpopup.c request.c `pkg-config --cflags elementary` -Wall `pkg-config --libs elementary`
 */
 #include <Elementary.h>
-#include "utils.h"
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample ctxpopup description"
 #define NAME "Sample ctxpopup"
@@ -98,6 +98,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, ctxpopup);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, ctxpopup);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, ctxpopup);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, ctxpopup);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, ctxpopup);
 	register_request_listener(EVENT_HIDE, hide, ctxpopup);
 	register_request_listener(EVENT_SHOW, show, ctxpopup);
 	register_request_listener(EVENT_PARENT_CHANGED, parent_changed, ctxpopup);

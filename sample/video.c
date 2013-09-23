@@ -21,10 +21,10 @@
 * gcc -o video video.c request.c `pkg-config --cflags --libs elementary`
 */
 #include <Elementary.h>
-#include "utils.h"
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample video description"
 #define NAME "Sample video"
@@ -63,6 +63,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, video);
 
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, video);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, video);
+	register_request_listener(EVENT_SET_FOCUS, set_focus, video);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, video);
 	register_request_listener(EVENT_RESIZE, resize, video);
 	register_request_listener(EVENT_SET_DISABLED, set_disabled, video);
 	register_request_listener(EVENT_SET_ENABLED, set_enabled, video);

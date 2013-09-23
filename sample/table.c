@@ -24,6 +24,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample table description"
 #define NAME "Sample table"

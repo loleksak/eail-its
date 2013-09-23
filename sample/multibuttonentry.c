@@ -117,6 +117,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, multibuttonentry);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, multibuttonentry);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, multibuttonentry);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, multibuttonentry);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, multibuttonentry);
 	register_request_listener(EVENT_TEXT_INSERT, text_insert, entry);
 	register_request_listener(EVENT_TEXT_DELETE, text_delete, entry);
 	register_request_listener(EVENT_TEXT_SELECT, select_all, entry);

@@ -24,6 +24,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample naviframe description"
 #define NAME "Sample naviframe"
@@ -81,6 +82,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, naviframe);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, naviframe);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, naviframe);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, naviframe);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, naviframe);
 	register_request_listener(ACTION_CLICK, register_action_click, naviframe);
 
 	evas_object_resize(win, 380, 300);

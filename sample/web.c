@@ -20,6 +20,8 @@
 #include <Elementary.h>
 #include <atk/atk.h>
 #include <eail_factory.h>
+#include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample web description"
 #define NAME "Sample web"
@@ -63,12 +65,18 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, web);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, web);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, web);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, web);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, web);
+
 	evas_object_resize(win, 240, 60);
 	evas_object_show(box);
 	evas_object_show(win);
 	evas_object_show(web);
 
 	elm_run();
+	request_shutdown();
 	elm_shutdown();
 	return 0;
 }

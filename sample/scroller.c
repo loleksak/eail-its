@@ -25,6 +25,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample scroller description"
 #define NAME "Sample scroller"
@@ -84,6 +85,11 @@ elm_main(int argc, char **argv) {
 	elm_object_content_set(scroller, box);
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, scroller);
+
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, scroller);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, scroller);
+	register_request_listener(EVENT_SET_FOCUS, set_focus, scroller);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, scroller);
 
 	register_request_listener(ACTION_SCROLL_LEFT, register_action_scroll_left, scroller);
 	register_request_listener(ACTION_SCROLL_RIGHT, register_action_scroll_right, scroller);

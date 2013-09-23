@@ -71,6 +71,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, calendar);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, calendar);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, calendar);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, calendar);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, calendar);
 	register_request_listener(EVENT_HIDE, hide, calendar);
 	register_request_listener(EVENT_SHOW, show, calendar);
 	register_request_listener(EVENT_SET_VALUE, set_date, calendar);

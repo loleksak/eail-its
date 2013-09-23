@@ -101,6 +101,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, player);
 
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, player);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, player);
+	register_request_listener(EVENT_SET_FOCUS, set_focus, player);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, player);
 	register_request_listener(EVENT_RESIZE, resize, player);
 	register_request_listener(EVENT_SET_DISABLED, set_disabled, player);
 	register_request_listener(EVENT_SET_ENABLED, set_enabled, player);

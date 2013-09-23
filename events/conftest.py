@@ -98,7 +98,15 @@ EVENTS = {
                            'text_attributes_changed'],
     'maximize': ['window:maximize', '', 'set_maximize'],
     'lower': ['window:lower', 'set_maximize', 'unset_maximize'],
-    'minimize': ['window:minimize', '', 'set_minimize']
+    'minimize': ['window:minimize', '', 'set_minimize'],
+    'focusable-set': ['object:state-changed:focusable', 'unset_focusable',
+                      'set_focusable'],
+    'focusable-unset': ['object:state-changed:focusable', 'set_focusable',
+                        'unset_focusable'],
+    'focused-set': ['object:state-changed:focused', 'unset_focus',
+                    'set_focus'],
+    'focused-unset': ['object:state-changed:focused', 'set_focus',
+                      'unset_focus'],
 }
 
 
@@ -106,13 +114,6 @@ EVENTS_ALL = {
     'enabled-disable': ['object:state-changed:enabled', '', 'set_disabled'],
     'enabled-enable': ['object:state-changed:enabled', 'set_disabled',
                        'set_enabled'],
-    'focusable-set': ['object:state-changed:focusable', '', 'set_focusable'],
-    'focusable-unset': ['object:state-changed:focusable', 'set_focusable',
-                        'unset_focusable'],
-    'focused-set': ['object:state-changed:focused', 'unset_focus',
-                    'set_focus'],
-    'focused-unset': ['object:state-changed:focused', 'set_focus',
-                      'unset_focus'],
     'showing-show': ['object:state-changed:showing', 'hide', 'show'],
     'visible-hide': ['object:state-changed:visible', '', 'hide'],
     'visible-show': ['object:state-changed:visible', 'hide', 'show']
@@ -226,6 +227,8 @@ def pytest_generate_tests(metafunc):
                 EVENTS[e][2]
             )
             arg_values.append(values)
-            ids.append(section + "[" + EVENTS[e][0] + "[" + EVENTS[e][2] + "]]")
+            ids.append(
+                section + "[" + EVENTS[e][0] + "[" + EVENTS[e][2] + "]]"
+            )
     metafunc.parametrize(("app", "obj", "event", "request1", "request2"),
                          arg_values, indirect=True, ids=ids)

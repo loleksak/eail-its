@@ -21,11 +21,11 @@
 * gcc -o hoversel hoversel.c request.c `pkg-config --cflags --libs elementary`
 */
 
-#include "utils.h"
 #include <Elementary.h>
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample hoversel description"
 #define NAME "Sample Hoversel"
@@ -110,6 +110,10 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, hoversel);
 
+	register_request_listener(EVENT_SET_FOCUS, set_focus, hoversel);
+	register_request_listener(EVENT_UNSET_FOCUS, unset_focus, hoversel);
+	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, hoversel);
+	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, hoversel);
 	register_request_listener(EVENT_ADD_CHILDREN, add_children, hoversel);
 	register_request_listener(EVENT_RM_ALL_CHILDREN, rm_all_children, hoversel);
 	register_request_listener(EVENT_SET_DISABLED, set_disabled, hoversel);
