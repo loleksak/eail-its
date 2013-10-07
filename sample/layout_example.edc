@@ -1,0 +1,37 @@
+collections {
+
+   group {
+      name: "example/mylayout";
+
+      data {
+         item: "title" "Layout Example 01";
+      }
+
+      parts {
+         part {
+            name: "example/box";
+            type: BOX;
+
+            description {
+               state: "default" 0.0;
+
+               box {
+                  layout: "horizontal_flow";
+                  padding: 2 2;
+                  align: 0.5 0.5;
+                  min: 1 1;
+               }
+               rel1 {
+                  relative: 0.0 0.2;
+                  offset: 0 0;
+               }
+               rel2 {
+                  relative: 1.0 0.5;
+                  offset: -1 -1;
+               }
+            }
+         } // example/box
+
+      }
+   }
+}

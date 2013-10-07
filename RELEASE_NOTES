@@ -1,0 +1,59 @@
+Release notes for EAIL ITS 1.2
+==============================
+
+Prerequisites
+-------------
+
+Before running EAIL ITS, Elementary (1.7.99 or more) and EAIL - the Enlightenment Accessibility Implementation Library (1.0.0 or more) need to be installed.
+
+Installation
+------------
+
+After downloading the EAIL ITS repository, execute the test suite (build sample applications and run tests) according to the instructions provided in the README file.
+
+Updates
+-------
+
+For updates simply download the newest version of EAIL ITS.
+
+New features
+------------
+
+The release provides basic integration test suite for the Enlightenment Accessibility Implementation Library. The package contains a set of parametrized python tests as well as a set of sample applications to be used in the testing process.
+The test suite tests the completeness of the implementation of ATK interfaces in EAIL (according to an ATK-EAIL mapping provided in the parameters.ini file) as well as successful application registration to the AT-SPI bus and data and event flow and triggering.
+
+Details
+-------
+
+Test criteria:
+* the test applications are successfully registered and deregistered in accessibility infrastructure (i.e. the AT-SPI registry),
+* a complete implementation of ATK interfaces is provided for all Elementary widgets (according to the agreed ATK-EAIL mapping),
+* successful data and event flow from widget to AT-SPI bus,
+* successful data and event flow from AT-SPI bus to widget,
+* successful event triggering on the graphical user interface.
+
+Issues
+------
+
+* Most of the event tests generated in events/events.py fail - this is a result of the current EAIL implementation which does not include event broadcasting for most event types.
+* Generating test events for states and the widget's children objects from parameters.ini file.
+
+Troubleshooting
+---------------
+
+N/A
+
+Contact information
+-------------------
+
+In case of questions contact the authors:
+* Michal Jagiello <m.jagiello@samsung.com>
+* Patryk Kaczmarek <patryk.k@samsung.com>
+* Zbigniew Kosinski <z.kosinski@samsung.com>
+* Dorota Orzeszek <d.orzeszek@samsung.com>
+* Lukasz Stanislawski <l.stanislaws@samsung.com>
+* Tomasz Strozak <t.strozak@partner.samsung.com>
+* Mateusz Zakowski <m.zakowski@partner.samsung.com>
+
+
+Last updated: September 12th, 2013

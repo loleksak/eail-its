@@ -1,0 +1,44 @@
+EAIL Integration Test Suite 1.2
+===============================
+
+
+ABOUT EAIL-ITS
+--------------
+
+EAIL-ITS in an integration test suite for the Enlightenment Accessibility Implementation Library (EAIL). The package also includes a set of sample applications to be used in the testing process. The test suite tests the completeness of the implementation of ATK interfaces in EAIL as well as successful application registration to the AT-SPI bus and data and event flow and triggering. The test suite is run for a set of simple single-widget EFL applications in sample/ which implement standard Elementary widgets. The test suite is based on an ATK-EAIL mapping supplied in parameters.ini and executed using the py.test framework.
+
+
+RUNNING TEST SUITE
+------------------
+
+To automatically build sample applications and run all tests just run:
+./run_all_tests.sh
+
+When running test categories separately first build sample applications in sample/ by running the makefile:
+make
+
+To run only registration tests:
+py.test -v registration/tests_registration.py 
+
+To run only mapping tests:
+py.test -v mapping/tests_mapping.py
+
+To run only action tests:
+py.test -v actions/test_action_interface.py
+
+To run only event broadcast tests:
+py.test -v events/events.py
+
+To run only tests for a specific widget and operation, e.g. only run "children-add" and "children-delete" tests for genlist:
+py.test -v -k "genlist and children" events/events.py
+
+For more details run:
+py.test -h
+
+ADDITIONAL PARAMETERS
+---------------------
+
+An additional parameter --timeout is passed to py.test to indicate the time that must pass after application launch before the test continues. This value should be large enough for the application to register in the AT-SPI registry.
+
+
+Last updated: September 6th, 2013
