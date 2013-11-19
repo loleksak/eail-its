@@ -78,7 +78,7 @@ def test_widget_actions(obj, actions):
 
     assert obj, "No application or no ATK object has been found"
 
-    if actions and actions != []:
+    if actions:
         actions_implemented = get_accessible_actions(obj)
         assert actions_implemented, "No AtkAction actions."
         assert sorted(actions) == sorted(actions_implemented),\
