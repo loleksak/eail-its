@@ -35,10 +35,12 @@ sys.path.insert(0, path + '/../')
 
 from utils import *
 
+
 def pytest_addoption(parser):
     parser.addoption('--response_timeout', action='store',
                      default=2, help='number of seconds between start '
                      'and stop listening on response from efl app')
+
 
 @pytest.fixture
 def app_runnable(request):
@@ -76,6 +78,9 @@ def obj(request):
 
 
 def pytest_generate_tests(metafunc):
+	"""
+	Generates test cases for the action verification test category.
+	"""
     global CONFIG_PATH
 
     parser = ConfigParser.ConfigParser()
