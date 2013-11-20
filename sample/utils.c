@@ -112,4 +112,8 @@ void press(void *data) {
 	_mouse_down(obj);
 }
 
+void text_caret_move( void *data) {
+	Evas_Object* obj = (Evas_Object*) data;
+	elm_entry_cursor_next(obj);
+}
 

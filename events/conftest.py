@@ -92,6 +92,8 @@ EVENTS = {
     'text-insert': ['object:text-changed-insert', '', 'text_insert'],
     'text-delete': ['object:text-changed-delete', 'text_insert',
                     'text_delete'],
+    'text-caret-move': ['object:text-caret-moved', '',
+                    'text_caret_move'],
     'attributes-changed': ['text-attributes-changed', '',
                            'text_attributes_changed'],
     'maximize': ['window:maximize', '', 'set_maximize'],

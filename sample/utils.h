@@ -33,4 +33,4 @@ Eina_Bool _mouse_up(void *data);
 void _mouse_down(Evas_Object *obj);
 void click(void *data);
 void press(void *data);
-
+void text_caret_move( void *data);
