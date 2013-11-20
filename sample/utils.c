@@ -17,6 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#define _GNU_SOURCE
+#include <stdio.h>
 #include "utils.h"
 
 /* generic function definitions
@@ -26,13 +28,16 @@
  */
 
 char* get_file(const char *argv0, const char *file_name) {
-	char *last = strrchr(argv0, '/');
-	char *file = (char*)malloc(
-		(last-argv0+strlen(file_name)+1) * sizeof(char)
-		);
-	eina_strlcpy(file, argv0, last-argv0+2);
-	eina_strlcat(file, file_name, strlen(file_name)+strlen(file)+1);
-	return file;
+	char *absolute_path_to_file = NULL;
+	char *real_path = NULL;
+	char *file_dir = NULL;
+
+	real_path = ecore_file_realpath(argv0);
+	file_dir = ecore_file_dir_get(real_path);
+	free(real_path);
+	asprintf(&absolute_path_to_file, "%s/%s", file_dir, file_name);
+	free(file_dir);
+	return absolute_path_to_file;
 }
 
 void show(void *data) {
