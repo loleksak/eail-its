@@ -184,9 +184,9 @@ def listener_timeout(request):
 
 
 def pytest_generate_tests(metafunc):
-	"""
-	Generates test cases for the event broadcast verification test category.
-	"""
+    """
+    Generates test cases for the event broadcast verification test category.
+    """
     global CONFIG_PATH
 
     parser = ConfigParser.ConfigParser()

@@ -93,9 +93,9 @@ def actions(request):
 
 
 def pytest_generate_tests(metafunc):
-	"""
-	Generates test cases for the mapping verification test category.
-	"""
+    """
+    Generates test cases for the mapping verification test category.
+    """
     global CONFIG_PATH
     parser = ConfigParser.ConfigParser()
     config_path = os.path.join(DATA_DIR, CONFIG_FILE)

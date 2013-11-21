@@ -78,9 +78,9 @@ def obj(request):
 
 
 def pytest_generate_tests(metafunc):
-	"""
-	Generates test cases for the action verification test category.
-	"""
+    """
+    Generates test cases for the action verification test category.
+    """
     global CONFIG_PATH
 
     parser = ConfigParser.ConfigParser()
