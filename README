@@ -21,7 +21,7 @@ RUNNING TEST SUITE
 
 To run the test suite you need:
 * pytest (2.3.5 or more)
-* Elementary (1.7.99 or more)
+* Elementary (1.7.99)
 * EAIL (1.0.0 or more)
 
 To automatically build sample applications and run all tests just run:

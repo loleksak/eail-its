@@ -4,7 +4,7 @@ Release notes for EAIL ITS 1.2
 Prerequisites
 -------------
 
-Before running EAIL ITS, pytest (2.3.5 or more), Elementary (1.7.99 or more)
+Before running EAIL ITS, pytest (2.3.5 or more), Elementary (1.7.99)
 and EAIL - the Enlightenment Accessibility Implementation Library (1.0.0 or
 more) need to be installed.
 
