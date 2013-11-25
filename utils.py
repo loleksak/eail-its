@@ -25,6 +25,7 @@ import pyatspi
 import os
 import time
 import pytest
+import signal
 
 __all__ = ['EventHandler', 'EailApp', 'find_accessible_application',
            'find_accessible_object_by_name', 'get_accessible_actions',
@@ -133,6 +134,11 @@ class EailApp(RunnableApp):
         if self._app_proc and not self._app_proc.poll():
             return True
         return False
+
+    def interrupt_and_wait(self, timeout):
+        if self.is_running():
+            self._app_proc.send_signal(signal.SIGINT)
+            time.sleep(timeout)
 
     def kill_and_wait(self, timeout):
         if self.is_running():

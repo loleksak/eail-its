@@ -135,7 +135,10 @@ def app(request, timeout):
     app.run_and_wait(timeout)
 
     def finalize():
-        app.terminate_and_wait(timeout)
+        if os.getenv("COVERAGE"):
+            app.interrupt_and_wait(timeout)
+        else:
+            app.kill_and_wait(timeout)
     request.addfinalizer(finalize)
     return app
 

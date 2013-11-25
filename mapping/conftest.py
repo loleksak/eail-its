@@ -49,7 +49,10 @@ def app_obj(request):
     app.run_and_wait(timeout)
 
     def close():
-        app.kill_and_wait(timeout)
+        if os.getenv("COVERAGE"):
+            app.interrupt_and_wait(timeout)
+        else:
+            app.kill_and_wait(timeout)
 
     request.addfinalizer(close)
     return find_accessible_application(os.path.basename(app_path))
@@ -64,7 +67,10 @@ def obj(request):
     app.run_and_wait(timeout)
 
     def close():
-        app.kill_and_wait(timeout)
+        if os.getenv("COVERAGE"):
+            app.interrupt_and_wait(timeout)
+        else:
+            app.kill_and_wait(timeout)
 
     request.addfinalizer(close)
     app_obj = find_accessible_application(os.path.basename(app_path))
