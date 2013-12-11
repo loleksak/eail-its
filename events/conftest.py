@@ -98,6 +98,8 @@ EVENTS = {
                            'text_attributes_changed'],
     'maximize': ['window:maximize', '', 'set_maximize'],
     'lower': ['window:lower', 'set_maximize', 'unset_maximize'],
+    'restore': ['window:maximize', 'set_maximize', 'unset_maximize'],
+    'move': ['object:visible-data-changed', '', 'set_value'],
     'minimize': ['window:minimize', '', 'set_minimize'],
     'focusable-set': ['object:state-changed:focusable', 'unset_focusable',
                       'set_focusable'],

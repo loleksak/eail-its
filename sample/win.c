@@ -73,6 +73,14 @@ void resize (void *data) {
 	evas_object_show(obj);
 }
 
+void move (void *data) {
+	int x, y;
+	Evas_Object* obj = (Evas_Object*) data;
+	evas_object_geometry_get(obj, &x, &y, NULL, NULL);
+	evas_object_move(obj, x+10, y+10);
+	evas_object_show(obj);
+}
+
 void _register_cb(void *data, Evas_Object *win, void *event_info) {
 	Evas_Object *eo = (Evas_Object *)data;
 	AtkObject *obj;
@@ -93,6 +101,12 @@ void register_action_maximize(void *data) {
 void register_action_minimize(void *data) {
 	Evas_Object *obj = (Evas_Object *)data;
 	evas_object_smart_callback_add(obj, "iconified", _response_cb, NULL);
+}
+
+void register_action_restore(void *data) {
+	Evas_Object *obj = (Evas_Object *)data;
+	elm_win_maximized_set(obj, EINA_TRUE);
+	evas_object_smart_callback_add(obj, "unmaximized", _response_cb, NULL);
 }
 
 
@@ -129,9 +143,11 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_SET_MINIMIZE, set_minimize, win);
 	register_request_listener(EVENT_UNSET_MAXIMIZE, unset_maximize, win);
 	register_request_listener(EVENT_RESIZE, resize, win);
+	register_request_listener(EVENT_MOVE, move, win);
 
 	register_request_listener(ACTION_MAXIMIZE, register_action_maximize, win);
 	register_request_listener(ACTION_MINIMIZE, register_action_minimize, win);
+	register_request_listener(ACTION_RESTORE, register_action_restore, win);
 
 	evas_object_resize(win, 240, 100);
 
