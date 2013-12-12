@@ -131,6 +131,8 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_SELECT_NONE, select_none, entry);
 	register_request_listener(EVENT_TEXT_ATTRIBUTES_CHANGED, text_attributes_changed, entry);
 	register_request_listener(EVENT_TEXT_CARET_MOVE, text_caret_move, entry);
+	register_request_listener(EVENT_SHOW, show, entry);
+	register_request_listener(EVENT_HIDE, hide, entry);
 
 	evas_object_show(win);
 	evas_object_show(bg);
