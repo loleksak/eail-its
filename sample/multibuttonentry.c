@@ -127,6 +127,8 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_TEXT_UNSELECT, select_none, entry);
 	register_request_listener(EVENT_TEXT_ATTRIBUTES_CHANGED, text_attributes_changed, entry);
 	register_request_listener(EVENT_TEXT_CARET_MOVE, text_caret_move, entry);
+	register_request_listener(EVENT_SHOW, show, multibuttonentry);
+	register_request_listener(EVENT_HIDE, hide, multibuttonentry);
 
 	register_request_listener(ACTION_SHRINK, register_action_shrink, multibuttonentry);
 	register_request_listener(ACTION_EXPAND, register_action_expand, multibuttonentry);
