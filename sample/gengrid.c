@@ -179,6 +179,8 @@ EAPI_MAIN int elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_MULTISELECT, gengrid_multiselect, gengrid);
 	register_request_listener(EVENT_ADD_CHILDREN, add_children, gengrid);
 	register_request_listener(EVENT_RM_CHILDREN, rm_children, gengrid);
+	register_request_listener(EVENT_SHOW, show, gengrid);
+	register_request_listener(EVENT_HIDE, hide, gengrid);
 
 	register_request_listener(ACTION_CLICK, register_action_click, gengrid_item);
 	register_request_listener(ACTION_PRESS, register_action_press, gengrid_item);

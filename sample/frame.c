@@ -20,6 +20,8 @@
 #include <Elementary.h>
 #include <atk/atk.h>
 #include <eail_factory.h>
+#include "utils.h"
+#include "request.h"
 
 #define DESCRITPION "Sample frame description"
 #define NAME "Sample frame"
@@ -47,6 +49,9 @@ elm_main(int argc, char **argv) {
 	elm_object_text_set(frame, "Frame");
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, frame);
+
+	register_request_listener(EVENT_SHOW, show, frame);
+	register_request_listener(EVENT_HIDE, hide, frame);
 
 	evas_object_resize(win, 240, 60);
 	evas_object_resize(frame, 120, 30);
