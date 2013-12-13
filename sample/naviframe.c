@@ -87,6 +87,8 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, naviframe);
 	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, naviframe);
 	register_request_listener(ACTION_CLICK, register_action_click, naviframe);
+	register_request_listener(EVENT_HIDE, hide, naviframe);
+	register_request_listener(EVENT_SHOW, show, naviframe);
 
 	evas_object_resize(win, 380, 300);
 	evas_object_resize(naviframe, 360, 280);
