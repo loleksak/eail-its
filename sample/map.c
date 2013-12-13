@@ -124,6 +124,8 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, map);
 	register_request_listener(EVENT_ADD_CHILDREN, add_children,map);
 	register_request_listener(EVENT_RM_CHILDREN, rm_children,item);
+	register_request_listener(EVENT_HIDE, hide, map);
+	register_request_listener(EVENT_SHOW, show, map);
 
 	register_request_listener(ACTION_ZOOM_IN, register_action_zoom_in, map);
 	register_request_listener(ACTION_ZOOM_OUT, register_action_zoom_out, map);
