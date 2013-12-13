@@ -21,6 +21,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample conformant description"
 #define NAME "Sample conformant"
@@ -54,6 +55,9 @@ elm_main(int argc, char **argv) {
 	elm_win_resize_object_add(win, conformant);
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, conformant);
+
+	register_request_listener(EVENT_HIDE, hide, conformant);
+	register_request_listener(EVENT_SHOW, show, conformant);
 
 	evas_object_resize(win, 240, 60);
 	evas_object_show(conformant);
