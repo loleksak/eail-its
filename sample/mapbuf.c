@@ -21,6 +21,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample mapbuf description"
 #define NAME "Sample mapbuf"
@@ -77,6 +78,9 @@ elm_main(int argc, char **argv) {
 	elm_mapbuf_enabled_set(mapbuf, EINA_TRUE);
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, mapbuf);
+
+	register_request_listener(EVENT_HIDE, hide, mapbuf);
+	register_request_listener(EVENT_SHOW, show, mapbuf);
 
 	evas_object_resize(win, 240, 60);
 	evas_object_show(box);
