@@ -21,6 +21,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample layout description"
 #define NAME "Sample layout"
@@ -75,6 +76,8 @@ elm_main(int argc, char **argv) {
 
 	register_request_listener(EVENT_ADD_CHILDREN, add_children,layout);
 	register_request_listener(EVENT_RM_CHILDREN, rm_children,layout);
+	register_request_listener(EVENT_HIDE, hide, layout);
+	register_request_listener(EVENT_SHOW, show, layout);
 
 	evas_object_resize(win, 240, 60);
 	evas_object_show(win);
