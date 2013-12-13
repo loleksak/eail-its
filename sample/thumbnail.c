@@ -74,6 +74,8 @@ elm_main(int argc, char **argv) {
 
 	register_request_listener(EVENT_RESIZE, resize, thumb);
 	register_request_listener(EVENT_CLICK, click, thumb);
+	register_request_listener(EVENT_HIDE, hide, thumb);
+	register_request_listener(EVENT_SHOW, show, thumb);
 
 	register_request_listener(ACTION_CLICK, register_action_click, thumb);
 
