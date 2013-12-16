@@ -70,6 +70,9 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, web);
 	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, web);
 
+	register_request_listener(EVENT_HIDE, hide, web);
+	register_request_listener(EVENT_SHOW, show, web);
+
 	evas_object_resize(win, 240, 60);
 	evas_object_show(box);
 	evas_object_show(win);
