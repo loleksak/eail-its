@@ -114,6 +114,7 @@ elm_main(int argc, char **argv) {
 	elm_multibuttonentry_item_append(multibuttonentry, "Third item", NULL, NULL);
 
 	entry = elm_multibuttonentry_entry_get(multibuttonentry);
+	elm_entry_entry_set(entry, "Initial text");
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, multibuttonentry);
 
