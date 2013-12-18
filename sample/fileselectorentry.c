@@ -68,6 +68,8 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_HIDE, hide, fs_entry);
 	register_request_listener(EVENT_SHOW, show, fs_entry);
 
+	register_request_listener(ACTION_CLICK, register_action_click, fs_entry);
+
 	evas_object_resize(win, 240, 80);
 	evas_object_resize(fs_entry, 150, 30);
 	evas_object_move(fs_entry, 60, 30);
