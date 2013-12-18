@@ -96,6 +96,9 @@ elm_main(int argc, char **argv) {
 	register_request_listener(ACTION_SCROLL_UP, register_action_scroll_up, scroller);
 	register_request_listener(ACTION_SCROLL_DOWN, register_action_scroll_down, scroller);
 
+	register_request_listener(EVENT_HIDE, hide, scroller);
+	register_request_listener(EVENT_SHOW, show, scroller);
+
 	evas_object_resize(win, 240, 60);
 	evas_object_show(box);
 	evas_object_show(win);
