@@ -87,6 +87,9 @@ elm_main(int argc, char **argv) {
 	register_request_listener(ACTION_NEXT, register_action_next, flipselector);
 	register_request_listener(ACTION_PREVIOUS, register_action_previous, flipselector);
 
+	register_request_listener(EVENT_HIDE, hide, flipselector);
+	register_request_listener(EVENT_SHOW, show, flipselector);
+
 	evas_object_resize(win, 240, 60);
 	evas_object_resize(flipselector, 120, 30);
 	evas_object_move(flipselector, 60, 15);
