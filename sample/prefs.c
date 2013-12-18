@@ -20,6 +20,8 @@
 #include <Elementary.h>
 #include <atk/atk.h>
 #include <eail_factory.h>
+#include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample Prefs description"
 #define NAME "Sample Prefs"
@@ -55,6 +57,9 @@ elm_main(int argc, char **argv) {
 	evas_object_show(prefs);
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, prefs);
+
+	register_request_listener(EVENT_HIDE, hide, prefs);
+	register_request_listener(EVENT_SHOW, show, prefs);
 
 	evas_object_resize(win, 240, 300);
 	evas_object_show(win);
