@@ -67,6 +67,9 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_SET_FOCUSABLE, set_focusable, fileselector);
 	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, fileselector);
 
+	register_request_listener(EVENT_HIDE, hide, fileselector);
+	register_request_listener(EVENT_SHOW, show, fileselector);
+
 	evas_object_resize(win, 300, 200);
 	evas_object_resize(fileselector, 180, 150);
 	evas_object_move(fileselector, 60, 40);
