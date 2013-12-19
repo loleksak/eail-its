@@ -95,6 +95,8 @@ elm_main(int argc, char **argv) {
 
 	register_request_listener(EVENT_ADD_CHILDREN, add_children, table);
 	register_request_listener(EVENT_RM_CHILDREN, rm_children, table);
+	register_request_listener(EVENT_HIDE, hide, table);
+	register_request_listener(EVENT_SHOW, show, table);
 
 	evas_object_show(win);
 	evas_object_show(bg);
