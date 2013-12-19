@@ -106,6 +106,8 @@ elm_main(int argc, char **argv) {
 	register_request_listener(EVENT_UNSET_FOCUSABLE, unset_focusable, toolbar);
 	register_request_listener(EVENT_ADD_CHILDREN, add_children, toolbar);
 	register_request_listener(EVENT_RM_CHILDREN, rm_children, toolbar);
+	register_request_listener(EVENT_HIDE, hide, toolbar);
+	register_request_listener(EVENT_SHOW, show, toolbar);
 
 	register_request_listener(ACTION_CLICK, register_action_click, toolbar);
 
