@@ -21,6 +21,7 @@
 #include <atk/atk.h>
 #include <eail_factory.h>
 #include "request.h"
+#include "utils.h"
 
 #define DESCRITPION "Sample bubble description"
 #define NAME "Sample bubble"
@@ -71,6 +72,8 @@ elm_main(int argc, char **argv) {
 
 	evas_object_smart_callback_add(win, "focus,in", _register_cb, bubble);
 
+	register_request_listener(EVENT_HIDE, hide, bubble);
+	register_request_listener(EVENT_SHOW, show, bubble);
 	register_request_listener(ACTION_CLICK, register_action_click, bubble);
 
 	evas_object_show(win);
