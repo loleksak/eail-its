@@ -31,7 +31,7 @@
 
 void set_checked(void *data) {
 	Evas_Object *obj = (Evas_Object*) data;
-	elm_radio_value_set(obj, 1);
+	click(obj);
 }
 
 void set_unchecked(void *data) {

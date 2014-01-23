@@ -45,12 +45,12 @@ void resize(void *data) {
 
 void set_checked(void *data) {
 	Evas_Object* obj = (Evas_Object*) data;
-	elm_check_state_set(obj, EINA_TRUE);
+	click(obj);
 }
 
 void set_unchecked(void *data) {
 	Evas_Object* obj = (Evas_Object*) data;
-	elm_check_state_set(obj, EINA_FALSE);
+	click(obj);
 }
 
 void _register_cb(void *data, Evas_Object *win, void *event_info) {
