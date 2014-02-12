@@ -15,6 +15,7 @@ applications in sample/ which implement standard Elementary widgets. The test
 suite is based on an ATK-EAIL mapping supplied in parameters.ini and executed
 using the py.test framework.
 
+Full Support on Tizen devices is provied on branch "tizen".
 
 RUNNING TEST SUITE
 ------------------
