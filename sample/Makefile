@@ -1,5 +1,5 @@
 CC ?= gcc
-EDJE_CC = /usr/local/bin/edje_cc
+EDJE_CC = /usr/bin/edje_cc
 
 
 PKGS = elementary atk eail

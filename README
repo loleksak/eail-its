@@ -15,6 +15,8 @@ applications in sample/ which implement standard Elementary widgets. The test
 suite is based on an ATK-EAIL mapping supplied in parameters.ini and executed
 using the py.test framework.
 
+Full Support on Tizen devices is provied on branch "tizen".
+
 
 RUNNING TEST SUITE
 ------------------
@@ -58,4 +60,4 @@ that must pass after application launch before the test continues. This value
 should be large enough for the application to register in the AT-SPI registry.
 
 
-Last updated: October 8th, 2013
+Last updated: February 12th, 2014

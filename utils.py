@@ -60,8 +60,8 @@ class EailApp(RunnableApp):
         of EFL-applications
     """
 
-    def __init__(self, app_path, request_pipe_path='/tmp/my_request_fifo',
-                 response_pipe_path='/tmp/my_response_fifo'):
+    def __init__(self, app_path, request_pipe_path='./my_request_fifo',
+                 response_pipe_path='./my_response_fifo'):
         super(EailApp, self).__init__(app_path)
         self._app_proc = None
         self._request_pipe_path = request_pipe_path
